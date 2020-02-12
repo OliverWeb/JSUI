@@ -90,7 +90,8 @@ class Project extends Component {
           </Horizontal>
 
           <S.IconRow alwaysShow={menuIsOpened}>
-            {!isWebBased && <S.ActionIcon tip="Open in code editor" icon={faCode} onClick={project.edit} />}
+            {!isWebBased && <S.ActionIcon tip="Open in code vscode" icon={faCode} onClick={project.edit} />}
+            {!isWebBased && <S.ActionIcon tip="Open in code webstorm" icon={faCode} onClick={project.editorWebstorm} />}
             {!isWebBased && <S.ActionIcon tip="Preview package.json" icon={faEye} onClick={project.previewFile} />}
             {!isWebBased && <A.ActionIcon tip={`Open ${project.path}`} icon={faFolder} onClick={project.openDir} />}
 

@@ -1,3 +1,22 @@
+[](https://blog.csdn.net/mocoe/article/details/86751925)
+[修复下载问题electron 7.0下载问题](https://www.jianshu.com/p/afd0e4329f10)
+```js
+//https://www.jianshu.com/p/afd0e4329f10
+downloadArtifact({
+  version,
+  artifactName: 'electron',
+  force: process.env.force_no_cache === 'true',
+  cacheRoot: process.env.electron_config_cache,
+  platform: process.env.npm_config_platform || process.platform,
+  arch: process.env.npm_config_arch || process.arch, //结尾别忘了加逗号！
+  //添加如下代码，
+  mirrorOptions:{
+    mirror: 'https://npm.taobao.org/mirrors/electron/',
+    customDir: version
+  }
+}).then((zipPath) => extractFile(zipPath)).catch((err) => onerror(err))
+```
+
 ### 🙋‍♂️ Made by [@thekitze](https://twitter.com/thekitze)  
 
 ### Other projects:

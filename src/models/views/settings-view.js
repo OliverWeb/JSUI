@@ -7,6 +7,7 @@ let homepath = remote.app.getPath('home');
 export default types
   .model('SettingsStore', {
     editor: 'code',
+    editorWebstorm: 'webstorm64.exe',
     projectsPath: types.optional(types.string, homepath),
     envPath: types.optional(types.string, homepath),
     indexFiles: types.optional(types.boolean, false),

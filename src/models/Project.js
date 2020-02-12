@@ -91,6 +91,28 @@ export default types
           alert(`Cannot open editor: ${err.toString()}. Try to provide the full path to it.`);
         }
       },
+      editorWebstorm: async () => {
+        const store = getRoot(self);
+        try {
+          const editorExists = commandExists(store.settings.editor);
+          console.log(11122221)
+          console.log(editorExists)
+          console.log(store.settings.editor);
+          if (editorExists) {
+            const editor = which.sync(store.settings.editorWebstorm);
+            spawn(editor, [self.path]);
+          } else {
+            toast({
+              type: 'error',
+              title: `The cli "${
+                store.settings.editor
+              }" couldn't be found. Please make sure it's installed, or provide the full path to it.`
+            });
+          }
+        } catch (err) {
+          alert(`Cannot open editor: ${err.toString()}. Try to provide the full path to it.`);
+        }
+      },
       setName: name => {
         self.name = name;
       },
